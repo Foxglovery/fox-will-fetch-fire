@@ -12,8 +12,33 @@ input {
 
 }
 
+#sprite {
+    height: 30%;
+    width: 30%;
+}
+
 button {
     color: #FDFDFD;
     background-color: #AC485A 
-     
+
 }
+
+header {
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 25px;
+}
+
+#main-container {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#image-container {
+    text-align: center;
+}
+
