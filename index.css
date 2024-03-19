@@ -3,6 +3,8 @@ html, body {
     padding: 0px;
     font-family: 'Rubik', sans-serif;
     background-color: #d763e3;
+    color: #432000;
+    user-select: none;
 
 }
 
@@ -41,4 +43,32 @@ button {
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;  
+}
+button:hover {
+    background-color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+ul li {
+    background-color: #FFFDF8;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    flex-grow: 1;
+    font-size: 20px;
+
+    
+}
+
+ul li:hover {
+    background-color: #432000;
 }
