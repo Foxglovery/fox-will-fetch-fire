@@ -41,7 +41,7 @@ onValue(shoppingListInDb, function (snapshot) {
 
   
   } else {
-    shoppingListEl.innerHTML = "Won't you feed the fox?"
+    shoppingListEl.innerHTML = ""
   }
 });
 
