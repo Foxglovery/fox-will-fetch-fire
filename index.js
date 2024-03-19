@@ -21,9 +21,14 @@ const shoppingListEl = document.getElementById("shopping-list");
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
-  push(shoppingListInDb, inputValue);
+  if(inputValue !== "") {
+    push(shoppingListInDb, inputValue);
   console.log(`${inputValue} was pushed to the db`);
   clearInputFieldEl();
+  } else {
+    console.log("nothing was entered")
+  }
+  
 });
 
 onValue(shoppingListInDb, function (snapshot) {

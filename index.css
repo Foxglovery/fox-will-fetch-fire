@@ -58,9 +58,7 @@ button {
   text-align: center;
   font-family: "Special Elite", sans-serif;
 }
-button:hover {
-  background-color: black;
-}
+
 
 ul {
   list-style-type: none;
