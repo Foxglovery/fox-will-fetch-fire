@@ -1,3 +1,4 @@
+/**@type {HTMLCanvasElement}*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import {
   getDatabase,
@@ -17,6 +18,14 @@ const shoppingListInDb = ref(database, "shoppingList");
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
 const shoppingListEl = document.getElementById("shopping-list");
+//canvas code
+const canvas = document.getElementById('myCanvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var ctx = canvas.getContext('2d');
+// ctx.fillStyle = 'red';
+// ctx.fillRect(0,0,10,10);
 
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
