@@ -7,11 +7,29 @@ import {
   onValue,
   remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-const appSettings = {
-  databaseURL: "https://fox-will-get-default-rtdb.firebaseio.com/",
+// const appSettings = {
+//   databaseURL: "https://fox-will-get-default-rtdb.firebaseio.com/",
+// };
+// var firebase = require("firebase");
+// var firebaseui = require("firebaseui");
+// var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+// ui.start("#firebaseui-auth-container", {
+//   signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
+//   // Other config options...
+// });
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBoTZEf7LmpDA3KOAok8ZPcPHkQDADRNU0",
+  authDomain: "fox-will-get.firebaseapp.com",
+  databaseURL: "https://fox-will-get-default-rtdb.firebaseio.com",
+  projectId: "fox-will-get",
+  storageBucket: "fox-will-get.appspot.com",
+  messagingSenderId: "45651837070",
+  appId: "1:45651837070:web:d13e8d9df67322f0f149df",
 };
 
-const app = initializeApp(appSettings);
+const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const shoppingListInDb = ref(database, "shoppingList");
 
@@ -29,7 +47,7 @@ var ctx = canvas.getContext("2d");
 // ctx.fillStyle = "blue";
 // ctx.fillRect(200, 410, 20, 20);
 
-//line
+// line
 // ctx.beginPath();
 // ctx.moveTo(50, 300);
 // //each line to makes another stroke
@@ -37,7 +55,7 @@ var ctx = canvas.getContext("2d");
 // ctx.lineTo(300, 400);
 // ctx.stroke();
 
-//create arc
+// create arc
 
 // for (var i = 0; i < 3; i++) {
 //   let x = Math.random() * window.innerWidth;
@@ -57,20 +75,43 @@ var ctx = canvas.getContext("2d");
 //   ctx.stroke();
 // }
 
+var mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+var maxRadius = 40;
+// var minRadius = 2;
+
+var colorArray = ["#fccd7f", "#fccd75", "#f4538d", "#fdcd75", "#fcdf75"];
+window.addEventListener("mousemove", function (event) {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  //if distance between mouse and circle is less than 50
+});
+
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  init();
+});
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
   this.y = y;
   this.dx = dx;
   this.dy = dy;
   this.radius = radius;
+  this.minRadius = radius;
+  this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
   this.draw = function () {
     ctx.beginPath();
-    ctx.strokeStyle = "blue";
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.stroke();
+    ctx.fillStyle = this.color;
     ctx.fill();
   };
 
+  //object action logic goes here
   this.update = function () {
     if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
       this.dx = -this.dx;
@@ -83,22 +124,37 @@ function Circle(x, y, dx, dy, radius) {
     this.x += this.dx;
     this.y += this.dy;
 
+    //interactivity
+
+    if (
+      mouse.x - this.x < 50 &&
+      mouse.x - this.x > -50 &&
+      mouse.y - this.y < 50 &&
+      mouse.y - this.y > -50
+    ) {
+      if (this.radius < maxRadius) {
+        this.radius += 1;
+      }
+    } else if (this.radius > this.minRadius) {
+      this.radius -= 1;
+    }
+
     this.draw();
-  }
+  };
 }
 
 let circleArray = [];
-
-//make several items
-for (let i = 0; i < 100; i++) {
-  let radius = 2;
-  let x = Math.random() * (innerWidth - radius * 2) + radius;
-  let y = Math.random() * (innerHeight - radius * 2) + radius;
-  let dx = (Math.random() - 0.5) * 3; // x velocity
-  let dy = (Math.random() - 0.5) * 3; //y velocity
-  circleArray.push(new Circle(x, y, dx, dy, radius));
+function init() {
+  //make several items
+  for (let i = 0; i < 200; i++) {
+    let radius = Math.random() * 3 + 1;
+    let x = Math.random() * (innerWidth - radius * 2) + radius;
+    let y = Math.random() * (innerHeight - radius * 2) + radius;
+    let dx = (Math.random() - 0.5) * 1; // x velocity
+    let dy = (Math.random() - 0.5) * 1; //y velocity
+    circleArray.push(new Circle(x, y, dx, dy, radius));
+  }
 }
-// console.log('Array of objects:'circleArray)
 function animate() {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -106,8 +162,8 @@ function animate() {
   for (let i = 0; i < circleArray.length; i++) {
     circleArray[i].update();
   }
-  
 }
+init();
 animate();
 
 addButtonEl.addEventListener("click", function () {
