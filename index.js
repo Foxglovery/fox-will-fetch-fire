@@ -18,7 +18,7 @@ import {
 //   signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
 //   // Other config options...
 // });
-
+//find a way not to use this
 const firebaseConfig = {
   apiKey: "AIzaSyBoTZEf7LmpDA3KOAok8ZPcPHkQDADRNU0",
   authDomain: "fox-will-get.firebaseapp.com",
@@ -42,6 +42,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 var ctx = canvas.getContext("2d");
+
 // ctx.fillStyle = "red";
 // ctx.fillRect(100, 110, 20, 20);
 // ctx.fillStyle = "blue";
