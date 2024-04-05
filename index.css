@@ -57,7 +57,7 @@ input {
   margin: 10px 0;
 }
 input::placeholder {
-    color: #fccd75;
+  color: #fccd75;
 }
 
 button {
@@ -71,7 +71,6 @@ button {
   text-align: center;
   font-family: "Special Elite", sans-serif;
 }
-
 
 ul {
   list-style-type: none;
@@ -91,7 +90,6 @@ ul li {
   font-size: 20px;
   color: #fccd75;
 }
-
 
 #canvas1 {
   border: 3px solid black;
