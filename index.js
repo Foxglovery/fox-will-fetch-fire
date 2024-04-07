@@ -91,6 +91,12 @@ window.addEventListener("mousemove", function (event) {
   //if distance between mouse and circle is less than 50
 });
 
+//added to account for touch screen
+window.addEventListener("touchmove", function (event) {
+  mouse.x = event.touches[0].clientX;
+  mouse.y = event.touches[0].clientY;
+});
+
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
