@@ -134,19 +134,19 @@ function Circle(x, y, dx, dy, radius) {
 
     //interactivity
 
-    if (
-      mouse.x - this.x < 50 &&
-      mouse.x - this.x > -50 &&
-      mouse.y - this.y < 50 &&
-      mouse.y - this.y > -50
-    ) {
-      //second if statement to limit the size the circles increase
-      if (this.radius < maxRadius) {
-        this.radius += 1;
-      }
-    } else if (this.radius > this.minRadius) {
-      this.radius -= 1;
-    }
+    // if (
+    //   mouse.x - this.x < 50 &&
+    //   mouse.x - this.x > -50 &&
+    //   mouse.y - this.y < 50 &&
+    //   mouse.y - this.y > -50
+    // ) {
+    //   //second if statement to limit the size the circles increase
+    //   if (this.radius < maxRadius) {
+    //     this.radius += 1;
+    //   }
+    // } else if (this.radius > this.minRadius) {
+    //   this.radius -= 1;
+    // }
 
     this.draw();
   };
