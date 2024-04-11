@@ -120,6 +120,7 @@ function Circle(x, y, dx, dy, radius) {
 
   //object action logic goes here
   this.update = function () {
+    //these change the velocity of the circles when they hit the bounds of the screen
     if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
       this.dx = -this.dx;
     }
@@ -133,18 +134,19 @@ function Circle(x, y, dx, dy, radius) {
 
     //interactivity
 
-    if (
-      mouse.x - this.x < 50 &&
-      mouse.x - this.x > -50 &&
-      mouse.y - this.y < 50 &&
-      mouse.y - this.y > -50
-    ) {
-      if (this.radius < maxRadius) {
-        this.radius += 1;
-      }
-    } else if (this.radius > this.minRadius) {
-      this.radius -= 1;
-    }
+    // if (
+    //   mouse.x - this.x < 50 &&
+    //   mouse.x - this.x > -50 &&
+    //   mouse.y - this.y < 50 &&
+    //   mouse.y - this.y > -50
+    // ) {
+    //   //second if statement to limit the size the circles increase
+    //   if (this.radius < maxRadius) {
+    //     this.radius += 1;
+    //   }
+    // } else if (this.radius > this.minRadius) {
+    //   this.radius -= 1;
+    // }
 
     this.draw();
   };
