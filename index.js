@@ -32,6 +32,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const shoppingListInDb = ref(database, "shoppingList");
+const frequentItemsInDb = ref(database, "frequentItems");
 
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
@@ -174,8 +175,13 @@ function animate() {
   }
 }
 init();
-animate();
+// animate();
 
+//MAIN LOGIC
+
+document.querySelector(".side-panel-toggle").addEventListener("click", () => {
+  document.querySelector(".wrapper").classList.toggle("side-panel-open");
+});
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
