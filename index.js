@@ -179,9 +179,6 @@ init();
 
 //MAIN LOGIC
 
-document.querySelector(".side-panel-toggle").addEventListener("click", () => {
-  document.querySelector(".wrapper").classList.toggle("side-panel-open");
-});
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);

@@ -11,11 +11,6 @@ body {
   z-index: -2;
 }
 
-.wrapper {
-  display: flex;
-  height: 100vh;
-}
-
 #main-container {
   display: flex;
   flex-direction: column;
@@ -24,47 +19,6 @@ body {
   margin: 30px auto;
   margin-top: 70px;
   z-index: 3;
-  flex-grow: 1;
-}
-
-.side-panel-toggle {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  position: fixed;
-
-  color: #ffffff;
-  background: green;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  cursor: pointer;
-}
-
-.sp-icon-close {
-  display: none !important;
-}
-
-.side-panel {
-  display: none;
-  width: 200px;
-  flex-shrink: 0;
-  color: white;
-  background: green;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-}
-
-.side-panel-open .side-panel {
-  display: initial;
-}
-
-.side-panel-open .sp-icon-open {
-  display: none !important;
-}
-.side-panel-open .sp-icon-close {
-  display: initial !important;
 }
 
 header {
@@ -106,7 +60,7 @@ input::placeholder {
   color: #fccd75;
 }
 
-#add-button {
+button {
   color: #fdfdfd;
   background-color: #ea483c;
 
