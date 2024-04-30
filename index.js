@@ -231,6 +231,7 @@ function clearInputFieldEl() {
   inputFieldEl.value = "";
 }
 
+//for adding the new item to the UI list
 function appendItemToShoppingListEl(item) {
   let itemID = item[0];
   let itemValue = item[1];
