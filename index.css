@@ -11,6 +11,38 @@ body {
   z-index: -2;
 }
 
+#side-panel {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Start off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff; /* Change the color as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  transition: left 0.3s ease; /* Smooth animation for opening/closing */
+  z-index: 2; /* Ensure it's above other content */
+}
+
+.tab {
+  position: fixed;
+  top: 20px; /* Adjust position as needed */
+  left: 20px; /* Adjust position as needed */
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff; /* Change the color as needed */
+  border-radius: 50%; /* Round shape */
+  cursor: pointer;
+  z-index: 3; /* Ensure it's above other content */
+}
+
+.tab::after {
+  content: "\2630"; /* Unicode symbol for hamburger menu */
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  line-height: 40px; /* Center vertically */
+}
+
 #main-container {
   display: flex;
   flex-direction: column;

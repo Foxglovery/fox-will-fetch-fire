@@ -179,6 +179,21 @@ init();
 
 //MAIN LOGIC
 
+function toggleSidePanel() {
+  // Get the side panel element
+  var sidePanel = document.getElementById("side-panel");
+
+  // Check if the side panel is currently visible or hidden
+  var isVisible = sidePanel.style.left === "0px";
+
+  // If the side panel is visible, hide it; otherwise, show it
+  if (isVisible) {
+    sidePanel.style.left = "-300px"; // Move off-screen to the left
+  } else {
+    sidePanel.style.left = "0"; // Move to the left edge of the screen
+  }
+}
+//for adding an item to the list
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
@@ -191,6 +206,7 @@ addButtonEl.addEventListener("click", function () {
   }
 });
 
+//for sending the item to the db
 onValue(shoppingListInDb, function (snapshot) {
   if (snapshot.exists()) {
     let itemArray = Object.entries(snapshot.val());
